@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LEGENDS ARENA</title>
+<title>ساحة الأساطير</title>
 
 <style>
 
@@ -12,13 +14,15 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+font-family:Tahoma,sans-serif;
 }
 
 body{
 overflow:hidden;
-background:#050816;
+background:#05060f;
 }
+
+/* الخلفية */
 
 .hero{
 position:relative;
@@ -27,145 +31,79 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
+text-align:center;
 overflow:hidden;
+background:
+linear-gradient(130deg,#02040d,#081d33,#22002f,#02040d);
+background-size:500% 500%;
+animation:bg 15s ease infinite;
 }
 
-/* Animated Background */
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+/* دوائر ضوئية */
 
 .hero::before{
+
 content:"";
+
 position:absolute;
-width:250%;
-height:250%;
+
+width:1800px;
+
+height:1800px;
+
 background:
-radial-gradient(circle,#00d9ff22 5%,transparent 6%),
-radial-gradient(circle,#ff00aa22 5%,transparent 6%);
-background-size:120px 120px;
-animation:bgMove 30s linear infinite;
+
+radial-gradient(circle,#00d9ff33,transparent 60%),
+
+radial-gradient(circle,#ffb30033,transparent 70%),
+
+radial-gradient(circle,#8a2be233,transparent 75%);
+
+animation:rotate 25s linear infinite;
+
 }
 
-@keyframes bgMove{
-
-0%{
-transform:rotate(0deg) translateY(0);
-}
+@keyframes rotate{
 
 100%{
-transform:rotate(360deg) translateY(-300px);
+transform:rotate(360deg);
 }
 
 }
 
-.overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(to top,#050816,#05081688,#050816);
-}
+/* النجوم */
 
-/* Logo */
-
-.logo{
-position:relative;
-font-size:75px;
-font-weight:bold;
-letter-spacing:6px;
-color:white;
-
-text-shadow:
-
-0 0 10px cyan,
-0 0 30px cyan,
-0 0 60px blue;
-}
-
-/* Subtitle */
-
-.subtitle{
-
-position:relative;
-
-margin-top:20px;
-
-font-size:25px;
-
-color:#d8e9ff;
-
-text-align:center;
-
-max-width:700px;
-
-line-height:40px;
-
-}
-
-/* Start Button */
-
-.start{
-
-margin-top:60px;
-
-padding:18px 70px;
-
-border:none;
-
-border-radius:60px;
-
-font-size:24px;
-
-cursor:pointer;
-
-font-weight:bold;
-
-background:linear-gradient(90deg,#00d9ff,#00ff99);
-
-color:white;
-
-box-shadow:
-
-0 0 20px cyan,
-
-0 0 50px cyan;
-
-transition:.4s;
-
-position:relative;
-
-}
-
-.start:hover{
-
-transform:scale(1.1);
-
-box-shadow:
-
-0 0 30px cyan,
-
-0 0 70px cyan;
-
-}
-
-/* Floating Lights */
-
-.light{
+.star{
 
 position:absolute;
 
-border-radius:50%;
+width:3px;
+
+height:3px;
 
 background:white;
 
-animation:float 8s linear infinite;
+border-radius:50%;
 
-opacity:.6;
+animation:up linear infinite;
+
+opacity:.8;
 
 }
 
-@keyframes float{
+@keyframes up{
 
 0%{
 
-transform:translateY(120vh);
+transform:translateY(110vh);
 
 opacity:0;
 
@@ -187,55 +125,143 @@ opacity:0;
 
 }
 
-.l1{
+/* المحتوى */
 
-width:5px;
+.content{
 
-height:5px;
+position:relative;
 
-left:15%;
+z-index:2;
 
-animation-duration:8s;
-
-}
-
-.l2{
-
-width:8px;
-
-height:8px;
-
-left:40%;
-
-animation-duration:10s;
+padding:20px;
 
 }
 
-.l3{
+/* العنوان */
 
-width:6px;
+h1{
 
-height:6px;
+font-size:80px;
 
-left:70%;
+color:#fff;
 
-animation-duration:7s;
+text-shadow:
 
-}
+0 0 10px gold,
 
-.l4{
+0 0 30px orange,
 
-width:10px;
+0 0 70px #ff9800,
 
-height:10px;
+0 0 100px red;
 
-left:90%;
-
-animation-duration:11s;
+animation:title 2s ease;
 
 }
 
-/* Bottom Text */
+@keyframes title{
+
+0%{
+
+transform:translateY(-120px);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+/* النص */
+
+p{
+
+margin-top:35px;
+
+font-size:28px;
+
+line-height:55px;
+
+color:#e8f6ff;
+
+text-shadow:0 0 10px cyan;
+
+animation:fade 3s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* الزر */
+
+button{
+
+margin-top:60px;
+
+padding:22px 80px;
+
+font-size:28px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:80px;
+
+cursor:pointer;
+
+background:linear-gradient(90deg,#ff9800,#ffd700);
+
+color:white;
+
+box-shadow:
+
+0 0 20px gold,
+
+0 0 40px orange,
+
+0 0 80px red;
+
+transition:.35s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 40px gold,
+
+0 0 80px orange,
+
+0 0 120px red;
+
+}
+
+/* الأسفل */
 
 .footer{
 
@@ -243,9 +269,13 @@ position:absolute;
 
 bottom:20px;
 
-font-size:15px;
+width:100%;
 
-color:#8aa7ff;
+text-align:center;
+
+color:#c8d9ff;
+
+font-size:16px;
 
 letter-spacing:2px;
 
@@ -259,44 +289,64 @@ letter-spacing:2px;
 
 <div class="hero">
 
-<div class="overlay"></div>
+<div class="content">
 
-<div class="light l1"></div>
-<div class="light l2"></div>
-<div class="light l3"></div>
-<div class="light l4"></div>
+<h1>
 
-<div class="logo">
+⚔️ ســــاحــــة الأســــاطــــير ⚔️
 
-LEGENDS ARENA
+</h1>
 
-</div>
+<p>
 
-<div class="subtitle">
+🔥 استعد للدخول إلى عالم لا يعترف إلا بالأقوياء 🔥
 
-ENTER THE ULTIMATE BATTLEFIELD<br>
+<br><br>
 
-ONLY THE STRONG SURVIVE<br>
+⚡ الشجاعة هي طريقك... والقوة هي سلاحك... والنصر ينتظر من يستحقه ⚡
 
-YOUR DESTINY STARTS NOW
+<br><br>
 
-</div>
+🏆 هل أنت مستعد لتبدأ رحلتك نحو المجد؟
 
-<button class="start"
+</p>
 
-onclick="window.location.href='page2.html'">
+<button onclick="window.location.href='page2.html'">
 
-START GAME
+🚀 ابــــدأ الآن
 
 </button>
 
+</div>
+
 <div class="footer">
 
-© 2026 LEGENDS ARENA
+© جميع الحقوق محفوظة
 
 </div>
 
 </div>
+
+<script>
+
+for(let i=0;i<180;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"%";
+
+s.style.animationDuration=(4+Math.random()*8)+"s";
+
+s.style.animationDelay=Math.random()*8+"s";
+
+document.body.appendChild(s);
+
+}
+
+</script>
 
 </body>
+
 </html>
