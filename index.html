@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>ساحة الأساطير</title>
 
@@ -14,29 +13,42 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Tahoma,sans-serif;
+font-family:'Segoe UI',Tahoma,sans-serif;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+background:#020817;
 }
 
 body{
-overflow:hidden;
-background:#05060f;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 /* الخلفية */
 
-.hero{
-position:relative;
-width:100%;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-overflow:hidden;
+.background{
+
+position:fixed;
+inset:0;
+
 background:
-linear-gradient(130deg,#02040d,#081d33,#22002f,#02040d);
+linear-gradient(
+135deg,
+#020817,
+#062046,
+#0b3b6f,
+#062046,
+#020817);
+
 background-size:500% 500%;
-animation:bg 15s ease infinite;
+
+animation:bg 18s ease infinite;
+
 }
 
 @keyframes bg{
@@ -47,59 +59,240 @@ animation:bg 15s ease infinite;
 
 }
 
-/* دوائر ضوئية */
+/* الضباب */
 
-.hero::before{
-
-content:"";
+.blur{
 
 position:absolute;
+border-radius:50%;
+filter:blur(140px);
+opacity:.30;
 
-width:1800px;
+}
 
-height:1800px;
+.b1{
+
+width:420px;
+height:420px;
+
+background:#00bfff;
+
+left:-120px;
+top:-120px;
+
+animation:move1 12s ease-in-out infinite alternate;
+
+}
+
+.b2{
+
+width:500px;
+height:500px;
+
+background:#1d4ed8;
+
+right:-150px;
+bottom:-150px;
+
+animation:move2 14s ease-in-out infinite alternate;
+
+}
+
+@keyframes move1{
+
+100%{
+
+transform:
+translate(140px,80px);
+
+}
+
+}
+
+@keyframes move2{
+
+100%{
+
+transform:
+translate(-120px,-90px);
+
+}
+
+}
+
+/* المحتوى */
+
+.container{
+
+position:relative;
+
+z-index:5;
+
+text-align:center;
+
+width:min(92%,800px);
+
+padding:20px;
+
+}
+
+.logo{
+
+font-size:clamp(45px,7vw,90px);
+
+font-weight:900;
+
+color:white;
+
+letter-spacing:2px;
+
+text-shadow:
+
+0 0 10px #00c8ff,
+
+0 0 30px #00c8ff,
+
+0 0 60px #1d4ed8,
+
+0 0 120px #1d4ed8;
+
+animation:logo 1.5s;
+
+}
+
+@keyframes logo{
+
+0%{
+
+opacity:0;
+transform:translateY(-60px);
+
+}
+
+100%{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.desc{
+
+margin-top:35px;
+
+font-size:clamp(18px,2.8vw,30px);
+
+line-height:2.2;
+
+color:#dbeafe;
+
+text-shadow:0 0 12px #38bdf8;
+
+animation:fade 2.5s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.start{
+
+margin-top:60px;
+
+padding:20px 80px;
+
+font-size:26px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:70px;
+
+cursor:pointer;
+
+color:white;
 
 background:
 
-radial-gradient(circle,#00d9ff33,transparent 60%),
+linear-gradient(90deg,#00c8ff,#2563eb);
 
-radial-gradient(circle,#ffb30033,transparent 70%),
+box-shadow:
 
-radial-gradient(circle,#8a2be233,transparent 75%);
+0 0 20px #00c8ff,
 
-animation:rotate 25s linear infinite;
+0 0 50px #2563eb,
 
-}
+0 0 90px #2563eb;
 
-@keyframes rotate{
-
-100%{
-transform:rotate(360deg);
-}
+transition:.35s;
 
 }
 
-/* النجوم */
+.start:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 40px #00c8ff,
+
+0 0 80px #2563eb,
+
+0 0 140px #2563eb;
+
+}
+
+.footer{
+
+position:absolute;
+
+bottom:25px;
+
+width:100%;
+
+text-align:center;
+
+font-size:14px;
+
+color:#93c5fd;
+
+}
 
 .star{
 
 position:absolute;
 
-width:3px;
+width:2px;
 
-height:3px;
+height:2px;
 
 background:white;
 
 border-radius:50%;
 
-animation:up linear infinite;
-
 opacity:.8;
+
+animation:float linear infinite;
 
 }
 
-@keyframes up{
+@keyframes float{
 
 0%{
 
@@ -125,195 +318,49 @@ opacity:0;
 
 }
 
-/* المحتوى */
-
-.content{
-
-position:relative;
-
-z-index:2;
-
-padding:20px;
-
-}
-
-/* العنوان */
-
-h1{
-
-font-size:80px;
-
-color:#fff;
-
-text-shadow:
-
-0 0 10px gold,
-
-0 0 30px orange,
-
-0 0 70px #ff9800,
-
-0 0 100px red;
-
-animation:title 2s ease;
-
-}
-
-@keyframes title{
-
-0%{
-
-transform:translateY(-120px);
-
-opacity:0;
-
-}
-
-100%{
-
-transform:translateY(0);
-
-opacity:1;
-
-}
-
-}
-
-/* النص */
-
-p{
-
-margin-top:35px;
-
-font-size:28px;
-
-line-height:55px;
-
-color:#e8f6ff;
-
-text-shadow:0 0 10px cyan;
-
-animation:fade 3s;
-
-}
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-/* الزر */
-
-button{
-
-margin-top:60px;
-
-padding:22px 80px;
-
-font-size:28px;
-
-font-weight:bold;
-
-border:none;
-
-border-radius:80px;
-
-cursor:pointer;
-
-background:linear-gradient(90deg,#ff9800,#ffd700);
-
-color:white;
-
-box-shadow:
-
-0 0 20px gold,
-
-0 0 40px orange,
-
-0 0 80px red;
-
-transition:.35s;
-
-}
-
-button:hover{
-
-transform:scale(1.08);
-
-box-shadow:
-
-0 0 40px gold,
-
-0 0 80px orange,
-
-0 0 120px red;
-
-}
-
-/* الأسفل */
-
-.footer{
-
-position:absolute;
-
-bottom:20px;
-
-width:100%;
-
-text-align:center;
-
-color:#c8d9ff;
-
-font-size:16px;
-
-letter-spacing:2px;
-
-}
-
 </style>
 
 </head>
 
 <body>
 
-<div class="hero">
+<div class="background">
 
-<div class="content">
+<div class="blur b1"></div>
 
-<h1>
+<div class="blur b2"></div>
 
-⚔️ ســــاحــــة الأســــاطــــير ⚔️
+</div>
 
-</h1>
+<div class="container">
 
-<p>
+<div class="logo">
 
-🔥 استعد للدخول إلى عالم لا يعترف إلا بالأقوياء 🔥
+⚔ ســــاحــــة الأســــاطــــير ⚔
+
+</div>
+
+<div class="desc">
+
+مرحبًا بك في عالمٍ لا يعترف إلا بالشجعان...
 
 <br><br>
 
-⚡ الشجاعة هي طريقك... والقوة هي سلاحك... والنصر ينتظر من يستحقه ⚡
+هنا تبدأ الرحلة...
+
+وهنا تُكتب أسماء الأساطير...
 
 <br><br>
 
-🏆 هل أنت مستعد لتبدأ رحلتك نحو المجد؟
+كل خطوة تقودك إلى المجد...
 
-</p>
+وكل قرار قد يغير مصيرك...
 
-<button onclick="window.location.href='page2.html'">
+</div>
 
-🚀 ابــــدأ الآن
+<button class="start">
+
+🚀 ابدأ الآن
 
 </button>
 
@@ -321,15 +368,13 @@ letter-spacing:2px;
 
 <div class="footer">
 
-© جميع الحقوق محفوظة
-
-</div>
+LEGENDS ARENA © 2026
 
 </div>
 
 <script>
 
-for(let i=0;i<180;i++){
+for(let i=0;i<220;i++){
 
 let s=document.createElement("div");
 
@@ -337,7 +382,9 @@ s.className="star";
 
 s.style.left=Math.random()*100+"%";
 
-s.style.animationDuration=(4+Math.random()*8)+"s";
+s.style.top=Math.random()*100+"%";
+
+s.style.animationDuration=(4+Math.random()*10)+"s";
 
 s.style.animationDelay=Math.random()*8+"s";
 
@@ -348,5 +395,4 @@ document.body.appendChild(s);
 </script>
 
 </body>
-
 </html>
