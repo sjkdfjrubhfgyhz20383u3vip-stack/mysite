@@ -1,244 +1,125 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ساحة الأساطير</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma,sans-serif}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#020617,#0f172a,#0c4a6e,#1e3a8a);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+position:relative;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #020817;
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:
+radial-gradient(circle,#38bdf833 2px,transparent 2px);
+background-size:80px 80px;
+animation:move 25s linear infinite;
+opacity:.4;
 }
 
-/* الخلفية الديناميكية */
-.background {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #020617, #0b192c, #002244, #0b192c, #020617);
-    background-size: 400% 400%;
-    animation: bg 15s ease infinite;
+@keyframes move{
+from{transform:translateY(0);}
+to{transform:translateY(300px);}
 }
 
-@keyframes bg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.box{
+position:relative;
+z-index:2;
+width:90%;
+max-width:700px;
+padding:35px;
+border-radius:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+text-align:center;
+box-shadow:0 0 40px rgba(0,180,255,.4);
 }
 
-/* الضباب والإضاءة الخلفية */
-.blur {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.45;
+h1{
+font-size:55px;
+color:#fff;
+text-shadow:0 0 10px #38bdf8,0 0 30px #2563eb;
+animation:pulse 2s infinite;
 }
 
-.b1 {
-    width: 450px;
-    height: 450px;
-    background: #00d2ff;
-    left: -100px;
-    top: -100px;
-    animation: move1 10s ease-in-out infinite alternate;
+@keyframes pulse{
+50%{text-shadow:0 0 20px #7dd3fc,0 0 50px #3b82f6;}
 }
 
-.b2 {
-    width: 550px;
-    height: 550px;
-    background: #3b82f6;
-    right: -120px;
-    bottom: -120px;
-    animation: move2 12s ease-in-out infinite alternate;
+p{
+margin:25px 0;
+font-size:22px;
+line-height:2;
+color:#dbeafe;
 }
 
-@keyframes move1 {
-    100% { transform: translate(150px, 100px) scale(1.1); }
+button{
+padding:18px 65px;
+font-size:24px;
+font-weight:bold;
+border:none;
+border-radius:50px;
+cursor:pointer;
+color:#fff;
+background:linear-gradient(90deg,#0ea5e9,#2563eb);
+box-shadow:0 0 20px #38bdf8;
+transition:.3s;
 }
 
-@keyframes move2 {
-    100% { transform: translate(-130px, -100px) scale(1.1); }
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 40px #38bdf8;
 }
 
-/* البطاقة الرئيسية الزجاجية */
-.container {
-    position: relative;
-    z-index: 5;
-    text-align: center;
-    width: min(90%, 850px);
-    padding: 50px 30px;
-    background: rgba(15, 23, 42, 0.55);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    border-radius: 30px;
-    box-shadow: 0 0 50px rgba(0, 200, 255, 0.15),
-                inset 0 0 20px rgba(255, 255, 255, 0.05);
-    animation: cardAppear 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+small{
+display:block;
+margin-top:25px;
+color:#93c5fd;
 }
-
-@keyframes cardAppear {
-    0% { opacity: 0; transform: translateY(40px) scale(0.95); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* العنوان */
-.logo {
-    font-size: clamp(38px, 6vw, 75px);
-    font-weight: 900;
-    color: #ffffff;
-    letter-spacing: 2px;
-    text-shadow: 
-        0 0 15px #00c8ff,
-        0 0 35px #00c8ff,
-        0 0 70px #1d4ed8;
-    animation: glowPulse 3s ease-in-out infinite alternate;
-}
-
-@keyframes glowPulse {
-    0% { text-shadow: 0 0 15px #00c8ff, 0 0 35px #00c8ff, 0 0 70px #1d4ed8; }
-    100% { text-shadow: 0 0 25px #38bdf8, 0 0 55px #00c8ff, 0 0 90px #2563eb, 0 0 120px #2563eb; }
-}
-
-/* الوصف */
-.desc {
-    margin-top: 30px;
-    font-size: clamp(16px, 2.3vw, 24px);
-    line-height: 2;
-    color: #e2e8f0;
-    font-weight: 500;
-    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-}
-
-/* زر البدء */
-.start-btn {
-    display: inline-block;
-    margin-top: 45px;
-    padding: 18px 70px;
-    font-size: 24px;
-    font-weight: 800;
-    color: #ffffff;
-    text-decoration: none;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    background: linear-gradient(135deg, #00c8ff 0%, #2563eb 50%, #1d4ed8 100%);
-    background-size: 200% auto;
-    box-shadow: 0 0 25px rgba(0, 200, 255, 0.6),
-                0 0 50px rgba(37, 99, 235, 0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.start-btn:hover {
-    background-position: right center;
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 0 40px rgba(0, 200, 255, 0.9),
-                0 0 80px rgba(37, 99, 235, 0.7);
-}
-
-.start-btn:active {
-    transform: translateY(-2px) scale(0.98);
-}
-
-/* الحقوق */
-.footer {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: #64748b;
-}
-
-/* النجوم */
-.star {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: float linear infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(105vh); opacity: 0; }
-    20% { opacity: 0.9; }
-    80% { opacity: 0.9; }
-    100% { transform: translateY(-10vh); opacity: 0; }
-}
-
 </style>
-
 </head>
 
 <body>
 
-<div class="background">
-    <div class="blur b1"></div>
-    <div class="blur b2"></div>
+<div class="box">
+
+<h1>⚔ ساحة الأساطير ⚔</h1>
+
+<p>
+مرحبًا بك في عالم الشجعان.<br>
+قاتل... انتصر... واكتب اسمك بين الأساطير.<br>
+هل أنت مستعد لبدء رحلتك؟
+</p>
+
+<button onclick="location.href='page2.html'">
+🚀 ابدأ الآن
+</button>
+
+<small>LEGENDS ARENA © 2026</small>
+
 </div>
-
-<div class="container">
-    <div class="logo">
-        ⚔ ســــاحــــة الأســــاطــــير ⚔
-    </div>
-
-    <div class="desc">
-        مرحبًا بك في عالمٍ لا يعترف إلا بالشجعان...
-        <br><br>
-        هنا تبدأ الرحلة... وتُكتب أسماء الأساطير...
-        <br><br>
-        كل خطوة تقودك إلى المجد، وكل قرار قد يغير مصيرك.
-    </div>
-
-    <a href="login.html" class="start-btn">
-        🚀 ابدأ الآن
-    </a>
-</div>
-
-<div class="footer">
-    LEGENDS ARENA © 2026
-</div>
-
-<script>
-const starCount = 180;
-for (let i = 0; i < starCount; i++) {
-    let star = document.createElement("div");
-    star.className = "star";
-    
-    let size = Math.random() * 3 + 1;
-    star.style.width = size + "px";
-    star.style.height = size + "px";
-    
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-    
-    star.style.animationDuration = (5 + Math.random() * 8) + "s";
-    star.style.animationDelay = (Math.random() * 5) + "s";
-    
-    document.body.appendChild(star);
-}
-</script>
 
 </body>
 </html>
-
-```
