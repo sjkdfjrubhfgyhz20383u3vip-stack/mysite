@@ -3,135 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>تحدي العباقرة</title>
 
 <style>
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Cairo",sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Cairo",sans-serif;
 }
+
 
 body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-background:linear-gradient(-45deg,#020617,#0f172a,#0c4a6e,#1d4ed8);
-background-size:400% 400%;
-animation:bg 15s ease infinite;
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,#38bdf8,#020617 65%);
+
 }
 
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
+
+/* دوائر الإضاءة */
 
 body::before{
-content:"";
-position:absolute;
-width:220%;
-height:220%;
-background:
-radial-gradient(circle,#38bdf81e 2px,transparent 3px);
-background-size:60px 60px;
-animation:stars 20s linear infinite;
+
+    content:"";
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    background:#0ea5e9;
+    filter:blur(150px);
+
+    animation:light 6s infinite alternate;
+
 }
 
-@keyframes stars{
-from{transform:translateY(0);}
-to{transform:translateY(250px);}
+
+@keyframes light{
+
+    from{
+        transform:translate(-150px,-100px);
+    }
+
+    to{
+        transform:translate(150px,100px);
+    }
+
 }
+
+
 
 .card{
-position:relative;
-z-index:2;
-width:90%;
-max-width:700px;
-padding:45px;
-border-radius:30px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.15);
-box-shadow:0 0 40px rgba(0,180,255,.4);
-text-align:center;
+
+    position:relative;
+    z-index:2;
+
+    width:90%;
+    max-width:650px;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    border-radius:35px;
+
+    background:
+    rgba(255,255,255,.10);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+
+    box-shadow:
+
+    0 0 40px rgba(14,165,233,.5);
+
+
+    animation:show 1s ease;
+
 }
+
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+transform:translateY(50px) scale(.9);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+
 
 .logo{
-font-size:70px;
-margin-bottom:20px;
-animation:float 3s ease-in-out infinite;
+
+    font-size:80px;
+
+    animation:float 3s infinite ease-in-out;
+
 }
+
+
 
 @keyframes float{
-50%{transform:translateY(-10px);}
+
+50%{
+
+transform:translateY(-15px);
+
 }
+
+}
+
+
 
 h1{
-color:#fff;
-font-size:48px;
-text-shadow:0 0 15px #38bdf8;
+
+    color:white;
+
+    font-size:50px;
+
+    margin-top:15px;
+
+    text-shadow:
+
+    0 0 15px #38bdf8,
+
+    0 0 35px #38bdf8;
+
 }
+
+
 
 p{
-margin:25px 0;
-font-size:22px;
-line-height:2;
-color:#dbeafe;
+
+    color:#e0f2fe;
+
+    font-size:21px;
+
+    line-height:2;
+
+    margin:25px 0;
+
 }
 
-button{
-padding:18px 65px;
-font-size:24px;
-font-weight:bold;
-border:none;
-border-radius:50px;
-cursor:pointer;
-color:#fff;
-background:linear-gradient(90deg,#06b6d4,#2563eb);
-box-shadow:0 0 20px #38bdf8;
-transition:.3s;
+
+
+.start{
+
+    display:inline-block;
+
+    padding:18px 70px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+
+    background:
+
+    linear-gradient(45deg,#06b6d4,#2563eb);
+
+
+    box-shadow:
+
+    0 0 20px #38bdf8;
+
+
+    transition:.4s;
+
+
 }
 
-button:hover{
-transform:scale(1.08);
-box-shadow:0 0 40px #60a5fa;
+
+
+.start:hover{
+
+    transform:scale(1.1);
+
+    box-shadow:
+
+    0 0 50px #38bdf8;
+
 }
+
+
 
 .footer{
-margin-top:25px;
-font-size:15px;
-color:#93c5fd;
+
+    margin-top:30px;
+
+    color:#bae6fd;
+
+    font-size:14px;
+
 }
+
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="card">
+
 
 <div class="logo">🧠</div>
 
-<h1>تحدي العباقرة</h1>
+
+<h1>
+تحدي العباقرة
+</h1>
+
 
 <p>
-هل تظن أن معلوماتك كافية لتصل إلى القمة؟<br>
-اختبر ذكاءك، نافس اللاعبين، واجمع أكبر عدد من النقاط.<br><br>
-كل سؤال يقربك من لقب البطل.
+
+هل تملك عقلية البطل؟ 🔥<br>
+
+اختبر ذكاءك، نافس أصدقاءك، واجمع النقاط للوصول للقمة.<br>
+
+كل إجابة تقربك من لقب العبقري.
+
 </p>
 
-<button onclick="location.href='page2.html'">
+
+
+<a class="start" href="login.html">
+
 🚀 ابدأ التحدي
-</button>
+
+</a>
+
+
 
 <div class="footer">
+
 الإصدار الأول • 2026
-</div>
 
 </div>
+
+
+</div>
+
 
 </body>
 </html>
