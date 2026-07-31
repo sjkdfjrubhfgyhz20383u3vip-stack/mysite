@@ -1,1 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squad Legends</title>
 
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+overflow:hidden;
+background:#05060b;
+}
+
+.hero{
+position:relative;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:
+radial-gradient(circle at top,#1a2148,#05060b 70%);
+}
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(white 1px,transparent 1px),
+radial-gradient(#44d9ff 1px,transparent 1px);
+background-size:120px 120px,180px 180px;
+animation:move 30s linear infinite;
+opacity:.5;
+}
+
+@keyframes move{
+from{transform:translateY(0);}
+to{transform:translateY(300px);}
+}
+
+.title{
+position:absolute;
+top:40px;
+width:100%;
+text-align:center;
+font-size:65px;
+font-weight:bold;
+color:white;
+text-shadow:
+0 0 10px cyan,
+0 0 30px cyan,
+0 0 60px blue;
+letter-spacing:4px;
+}
+
+.subtitle{
+position:absolute;
+top:120px;
+width:100%;
+text-align:center;
+color:#c7d4ff;
+font-size:20px;
+}
+
+.team{
+display:flex;
+gap:50px;
+align-items:flex-end;
+z-index:2;
+}
+
+.card{
+width:230px;
+height:430px;
+border-radius:25px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.15);
+box-shadow:0 0 40px rgba(0,255,255,.25);
+display:flex;
+justify-content:center;
+align-items:center;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-15px) scale(1.04);
+box-shadow:0 0 50px cyan;
+}
+
+svg{
+width:180px;
+height:360px;
+}
+
+.btn{
+position:absolute;
+bottom:50px;
+padding:18px 60px;
+font-size:24px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#00d9ff,#00ff99);
+color:white;
+cursor:pointer;
+box-shadow:0 0 30px cyan;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<div class="stars"></div>
+
+<div class="title">
+SQUAD LEGENDS
+</div>
+
+<div class="subtitle">
+Play Together • Win Together
+</div>
+
+<div class="team">
+
+<div class="card">
+
+<svg viewBox="0 0 200 360">
+
+<circle cx="100" cy="55" r="35" fill="#ffd6a0"/>
+
+<rect x="60" y="95" width="80" height="120"
+rx="18" fill="#1fd6ff"/>
+
+<rect x="72" y="210" width="22" height="95"
+fill="#222"/>
+
+<rect x="106" y="210" width="22" height="95"
+fill="#222"/>
+
+<rect x="40" y="110" width="18" height="80"
+fill="#ffd6a0"/>
+
+<rect x="142" y="110" width="18" height="80"
+fill="#ffd6a0"/>
+
+<rect x="80" y="30" width="40" height="18"
+fill="#111"/>
+
+</svg>
+
+</div>
+
+<div class="card">
+
+<svg viewBox="0 0 200 360">
+
+<circle cx="100" cy="55" r="35" fill="#ffd6a0"/>
+
+<rect x="60" y="95" width="80" height="120"
+rx="18" fill="#ff5c7d"/>
+
+<rect x="72" y="210" width="22" height="95"
+fill="#222"/>
+
+<rect x="106" y="210" width="22" height="95"
+fill="#222"/>
+
+<rect x="40" y="110" width="18" height="80"
+fill="#ffd6a0"/>
+
+<rect x="142" y="110" width="18" height="80"
+fill="#ffd6a0"/>
+
+<polygon points="60,105 100,75 140,105"
+fill="#ffde00"/>
+
+</svg>
+
+</div>
+
+<div class="card">
+
+<svg viewBox="0 0 200 360">
+
+<circle cx="100" cy="55" r="35" fill="#ffd6a0"/>
+
+<rect x="60" y="95" width="80" height="120"
+rx="18" fill="#8b5cff"/>
+
+<rect x="72" y="210" width="22" height="95"
+fill="#222"/>
+
+<rect x="106" y="210" width="22" height="95"
+fill="#222"/>
+
+<rect x="40" y="110" width="18" height="80"
+fill="#ffd6a0"/>
+
+<rect x="142" y="110" width="18" height="80"
+fill="#ffd6a0"/>
+
+<circle cx="100" cy="55" r="42"
+stroke="cyan"
+stroke-width="3"
+fill="none"/>
+
+</svg>
+
+</div>
+
+</div>
+
+<button class="btn">
+START GAME
+</button>
+
+</div>
+
+</body>
+  </html>
