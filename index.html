@@ -3,21 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ساحة الأساطير</title>
+<title>تحدي العباقرة</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Cairo",sans-serif;
+}
 
 body{
 height:100vh;
-overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(-45deg,#020617,#0f172a,#0c4a6e,#1e3a8a);
+overflow:hidden;
+background:linear-gradient(-45deg,#020617,#0f172a,#0c4a6e,#1d4ed8);
 background-size:400% 400%;
-animation:bg 12s ease infinite;
-position:relative;
+animation:bg 15s ease infinite;
 }
 
 @keyframes bg{
@@ -29,43 +33,47 @@ position:relative;
 body::before{
 content:"";
 position:absolute;
-width:200%;
-height:200%;
+width:220%;
+height:220%;
 background:
-radial-gradient(circle,#38bdf833 2px,transparent 2px);
-background-size:80px 80px;
-animation:move 25s linear infinite;
-opacity:.4;
+radial-gradient(circle,#38bdf81e 2px,transparent 3px);
+background-size:60px 60px;
+animation:stars 20s linear infinite;
 }
 
-@keyframes move{
+@keyframes stars{
 from{transform:translateY(0);}
-to{transform:translateY(300px);}
+to{transform:translateY(250px);}
 }
 
-.box{
+.card{
 position:relative;
 z-index:2;
 width:90%;
 max-width:700px;
-padding:35px;
-border-radius:25px;
+padding:45px;
+border-radius:30px;
 background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,.15);
-text-align:center;
 box-shadow:0 0 40px rgba(0,180,255,.4);
+text-align:center;
+}
+
+.logo{
+font-size:70px;
+margin-bottom:20px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-10px);}
 }
 
 h1{
-font-size:55px;
 color:#fff;
-text-shadow:0 0 10px #38bdf8,0 0 30px #2563eb;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-50%{text-shadow:0 0 20px #7dd3fc,0 0 50px #3b82f6;}
+font-size:48px;
+text-shadow:0 0 15px #38bdf8;
 }
 
 p{
@@ -83,19 +91,19 @@ border:none;
 border-radius:50px;
 cursor:pointer;
 color:#fff;
-background:linear-gradient(90deg,#0ea5e9,#2563eb);
+background:linear-gradient(90deg,#06b6d4,#2563eb);
 box-shadow:0 0 20px #38bdf8;
 transition:.3s;
 }
 
 button:hover{
 transform:scale(1.08);
-box-shadow:0 0 40px #38bdf8;
+box-shadow:0 0 40px #60a5fa;
 }
 
-small{
-display:block;
+.footer{
 margin-top:25px;
+font-size:15px;
 color:#93c5fd;
 }
 </style>
@@ -103,21 +111,25 @@ color:#93c5fd;
 
 <body>
 
-<div class="box">
+<div class="card">
 
-<h1>⚔ ساحة الأساطير ⚔</h1>
+<div class="logo">🧠</div>
+
+<h1>تحدي العباقرة</h1>
 
 <p>
-مرحبًا بك في عالم الشجعان.<br>
-قاتل... انتصر... واكتب اسمك بين الأساطير.<br>
-هل أنت مستعد لبدء رحلتك؟
+هل تظن أن معلوماتك كافية لتصل إلى القمة؟<br>
+اختبر ذكاءك، نافس اللاعبين، واجمع أكبر عدد من النقاط.<br><br>
+كل سؤال يقربك من لقب البطل.
 </p>
 
 <button onclick="location.href='page2.html'">
-🚀 ابدأ الآن
+🚀 ابدأ التحدي
 </button>
 
-<small>LEGENDS ARENA © 2026</small>
+<div class="footer">
+الإصدار الأول • 2026
+</div>
 
 </div>
 
